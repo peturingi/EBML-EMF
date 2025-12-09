@@ -1,0 +1,8 @@
+*.DS_Store
+/.metadata/
+/dk.ingi.ebml/bin/
+/dk.ingi.ebml.edit/bin/
+/dk.ingi.ebml.editor/bin/
+/dk.ingi.ebml/.settings/
+/dk.ingi.ebml.edit/.settings/
+/dk.ingi.ebml.editor/.settings/

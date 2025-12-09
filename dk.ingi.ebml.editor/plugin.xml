@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+  
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated EBML -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="dk.ingi.EBML.presentation.EBMLModelWizardID"
+            name="%_UI_EBMLModelWizard_label"
+            class="dk.ingi.EBML.presentation.EBMLModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EBMLModelFile.gif">
+         <description>%_UI_EBMLModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated EBML -->
+      <editor
+            id="dk.ingi.EBML.presentation.EBMLEditorID"
+            name="%_UI_EBMLEditor_label"
+            icon="icons/full/obj16/EBMLModelFile.gif"
+            extensions="ebml"
+            class="dk.ingi.EBML.presentation.EBMLEditor"
+            contributorClass="dk.ingi.EBML.presentation.EBMLActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

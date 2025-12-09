@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: dk.ingi.ebml.edit;singleton:=true
+Automatic-Module-Name: dk.ingi.ebml.edit
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: dk.ingi.EBML.provider.EBMLEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-25
+Export-Package: dk.ingi.EBML.provider
+Require-Bundle: org.eclipse.core.runtime,
+ dk.ingi.ebml;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

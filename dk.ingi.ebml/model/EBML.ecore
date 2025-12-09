@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="EBML" nsURI="urn:ietf:rfc:8794" nsPrefix="dk.ingi">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="queryDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eAnnotations source="https://ingi.dk/XMLDataConverter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EBMLSchema">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ebml_positive version_notNegative"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ebml_positive" value="self.ebml >= 1"/>
+      <details key="version_notNegative" value="self.version >= 0"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="docType" lowerBound="1"
+        eType="#//DocumentType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ebml" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
+        eType="#//Element" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="id_valid element_containedbyEBMLSchema minOccurs_nonNegative minOccurs_defaultlessWhenGreaterThanOne maxOccurs_greaterEqualMinOccurs maxOccurs_valid name_valid type_masterMustNotDeclareDefaultValue unknownSizeAllowed_notTrueIfRecursiveIsTrue recursive_notTrueIfUnknownSizeAllowedIsTrue minver_nonNegative maxver_nonNegative maxver_greaterOrEqualToMinver type_onlyMasterCanBeRecursive range_isAllowed unknownSizeAllowed_isValid path_ifHasIsRecursivePartThenRecursiveIsTrue recursive_ifTrueThenPathHasIsRecursivePart"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="id_valid" value="not self.id.oclIsUndefined() implies self.id.matches('^0x([0-9A-F][0-9A-F])+$')"/>
+      <details key="element_containedbyEBMLSchema" value="self.oclContainer().oclIsTypeOf(EBMLSchema)"/>
+      <details key="minOccurs_nonNegative" value="self.minOccurs >= 0"/>
+      <details key="minOccurs_defaultlessWhenGreaterThanOne" value="self.minOccurs > 1 implies self.default.oclIsUndefined()"/>
+      <details key="maxOccurs_greaterEqualMinOccurs" value="self.minOccurs &lt;= self.effectiveMaxOccurs"/>
+      <details key="maxOccurs_valid" value="self.maxOccurs.matches('^(unbounded|0|[1-9][0-9]*)$')"/>
+      <details key="name_valid" value="not self.name.oclIsUndefined() implies self.name.matches('^[A-Za-z0-9][A-Za-z0-9.-]*$')"/>
+      <details key="type_masterMustNotDeclareDefaultValue" value="self.type = ElementType::MASTER implies self.default.oclIsUndefined()"/>
+      <details key="unknownSizeAllowed_notTrueIfRecursiveIsTrue" value="(not self.unknownSizeAllowed.oclIsUndefined() and self.unknownSizeAllowed = true)&#xA;implies&#xA;(self.recursive.oclIsUndefined() or self.recursive = false)"/>
+      <details key="type_onlyMasterCanBeRecursive" value="self.recursive = true implies self.type = ElementType::MASTER"/>
+      <details key="recursive_notTrueIfUnknownSizeAllowedIsTrue" value="(not self.recursive.oclIsUndefined() and self.recursive = true)&#xA;implies&#xA;(self.unknownSizeAllowed.oclIsUndefined() or self.unknownSizeAllowed = false)"/>
+      <details key="minver_nonNegative" value="not self.minver.oclIsUndefined()&#xA;implies&#xA;self.minver >= 0"/>
+      <details key="maxver_nonNegative" value="not self.maxver.oclIsUndefined() implies self.maxver >= 0"/>
+      <details key="maxver_greaterOrEqualToMinver" value="&#xA;let effectiveMaxver : Integer = if self.maxver.oclIsUndefined()&#xA;                                                   then self.oclContainer().oclAsType(EBMLSchema).version&#xA;                                                   else self.maxver&#xA;                                                   endif&#xA;in&#xA;    let effectiveMinver : Integer = if self.minver.oclIsUndefined()&#xA;                                                      then 1&#xA;                                                      else self.minver&#xA;                                                      endif&#xA;    in&#xA;        effectiveMinver &lt;= effectiveMaxver "/>
+      <details key="range_isAllowed" value="not self.range.oclIsUndefined()&#xA;implies&#xA;Set{ElementType::INTEGER, ElementType::UINTEGER, ElementType::FLOAT, ElementType::DATE}->includes(self.type)"/>
+      <details key="unknownSizeAllowed_isValid" value="if self.unknownSizeAllowed.oclIsUndefined() or self.unknownSizeAllowed = false then true else let i : Integer = self.path.lastIndexOf('\\')&#xA;in if i = -1 or i = 1&#xA;     then true&#xA;     else&#xA;     let parentPath : String = self.path.substring(1, i-1)&#xA;     in  Element.allInstances()->exists(e: Element | e.path = parentPath and e.unknownSizeAllowed = true) endif endif&#xA;     &#xA;     "/>
+      <details key="path_ifHasIsRecursivePartThenRecursiveIsTrue" value="let i : Integer = self.path.lastIndexOf('\\')&#xA;in if self.path.oclIsUndefined() or self.path.size() &lt; i or i = -1&#xA;then true&#xA;else self.path.at(i+1) = '+' implies (not self.recursive.oclIsUndefined() and self.recursive = true)&#xA;endif"/>
+      <details key="recursive_ifTrueThenPathHasIsRecursivePart" value="(not self.recursive.oclIsUndefined() and self.recursive = true)&#xA;implies&#xA;not self.path.oclIsUndefined()&#xA;and let i : Integer = self.path.lastIndexOf('\\') in (i > 0 and self.path.size() > i+1 and self.path.at(i+1) = '+')"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurs" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="unbounded"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minver" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxver" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documentation" upperBound="-1"
+        eType="#//Documentation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementationNote" upperBound="7"
+        eType="#//ImplementationNote" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="implementation_note"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extension" upperBound="-1"
+        eType="#//Extension" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recurring" lowerBound="1"
+        eType="#//ZeroOneBooleanObject" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unknownSizeAllowed" lowerBound="1"
+        eType="#//ZeroOneBooleanObject" defaultValueLiteral="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="unknownsizeallowed"/>
+        <details key="kind" value="attribute"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restriction" eType="#//Restriction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//ElementType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recursive" lowerBound="1"
+        eType="#//ZeroOneBooleanObject" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effectiveMaxOccurs" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" changeable="false"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="if self.maxOccurs = 'unbounded' &#xA;then 2147483647 -- Integer.MAX_VALUE&#xA;else self.maxOccurs.toInteger()&#xA;endif"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Extension">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="containerType"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="containerType" value="self.oclContainer().oclIsTypeOf(Element)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anyAttribute" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attributeWildcard"/>
+        <details key="name" value=":1"/>
+        <details key="wildcards" value="##any"/>
+        <details key="processing" value="lax"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value=""/>
+        <details key="kind" value="elementWildcard"/>
+        <details key="processing" value="lax"/>
+        <details key="wildcards" value="##other"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Documentation">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="kind" value="simple"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" lowerBound="1"
+        eType="#//DocumentationPurpose" defaultValueLiteral="definition" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="simple" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="simple"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DocumentationPurpose">
+    <eLiterals name="DEFINITION" value="1" literal="definition"/>
+    <eLiterals name="RATIONALE" value="2" literal="rationale"/>
+    <eLiterals name="USAGE_NOTES" value="3" literal="usage notes"/>
+    <eLiterals name="REFERENCES" value="4" literal="references"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImplementationNote">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noteAttribute" lowerBound="1"
+        eType="#//NoteAttribute" iD="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="note_attribute"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NoteAttribute">
+    <eLiterals name="MIN_OCCURS" value="1" literal="minOccurs"/>
+    <eLiterals name="MAX_OCCURS" value="2" literal="maxOccurs"/>
+    <eLiterals name="RANGE" value="3" literal="range"/>
+    <eLiterals name="LENGTH" value="4" literal="length"/>
+    <eLiterals name="DEFAULT" value="5" literal="default"/>
+    <eLiterals name="MINVER" value="6" literal="minver"/>
+    <eLiterals name="MAXVER" value="7" literal="maxver"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Restriction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enum" upperBound="-1" eType="#//Enum"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enum">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documentation" upperBound="-1"
+        eType="#//Documentation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DocumentType">
+    <eLiterals name="MATROSKA" value="1" literal="matroska"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ElementType">
+    <eLiterals name="INTEGER" value="1" literal="integer"/>
+    <eLiterals name="UINTEGER" value="2" literal="uinteger"/>
+    <eLiterals name="FLOAT" value="3" literal="float"/>
+    <eLiterals name="STRING" value="4" literal="string"/>
+    <eLiterals name="DATE" value="5" literal="date"/>
+    <eLiterals name="UTF8" value="6" literal="utf-8"/>
+    <eLiterals name="MASTER" value="7" literal="master"/>
+    <eLiterals name="BINARY" value="8" literal="binary"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ZeroOneBooleanObject" instanceClassName="java.lang.Boolean"/>
+</ecore:EPackage>

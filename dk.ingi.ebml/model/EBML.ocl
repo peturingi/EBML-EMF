@@ -1,0 +1,19 @@
+import 'EBML.ecore'
+
+package EBML
+
+		
+--context Element
+
+
+
+
+-- TODO
+--			 
+-- context Enum
+-- 
+-- The Enum's 'value' MUST be a valid value for the EBML element which contains
+-- the restriction which contains the enum. 
+
+
+endpackage

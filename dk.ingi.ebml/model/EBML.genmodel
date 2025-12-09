@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/dk.ingi.ebml/src-gen" creationIcons="false" editDirectory="/dk.ingi.ebml.edit/src-gen"
+    editorDirectory="/dk.ingi.ebml.editor/src-gen" modelPluginID="dk.ingi.ebml" modelName="EBML"
+    modelPluginClass="dk.ingi.EBML.provider.EBMLPlugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="25.0"
+    suppressGenModelAnnotations="false" copyrightFields="false" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>EBML.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="EBML" basePackage="dk.ingi" resource="XML" disposableProviderFactory="true"
+      dataTypeConverters="true" ecorePackage="EBML.ecore#/">
+    <genEnums documentation="Distinguishes the meaning of the documentation." typeSafeEnumCompatible="false"
+        ecoreEnum="EBML.ecore#//DocumentationPurpose">
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//DocumentationPurpose/DEFINITION"
+          documentation="A &quot;definition&quot; is recommended for every defined EBML Element. This documentation explains the semantic meaning of the documented EBML Element."/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//DocumentationPurpose/RATIONALE"
+          documentation="An explanation about the reason or catalyst for the definition of the documented Element."/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//DocumentationPurpose/USAGE_NOTES"
+          documentation="Recommented practises or guidelines for both reading, writing, or interpreting the documented Element."/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//DocumentationPurpose/REFERENCES"
+          documentation="Informational references to support the contextualization and understanding of the value of the documented Element."/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EBML.ecore#//NoteAttribute">
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//NoteAttribute/MIN_OCCURS"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//NoteAttribute/MAX_OCCURS"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//NoteAttribute/RANGE"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//NoteAttribute/LENGTH"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//NoteAttribute/DEFAULT"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//NoteAttribute/MINVER"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//NoteAttribute/MAXVER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EBML.ecore#//DocumentType">
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//DocumentType/MATROSKA"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EBML.ecore#//ElementType">
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//ElementType/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//ElementType/UINTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//ElementType/FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//ElementType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//ElementType/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//ElementType/UTF8"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//ElementType/MASTER"/>
+      <genEnumLiterals ecoreEnumLiteral="EBML.ecore#//ElementType/BINARY"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="EBML.ecore#//ZeroOneBooleanObject"/>
+    <genClasses ecoreClass="EBML.ecore#//EBMLSchema">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//EBMLSchema/docType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//EBMLSchema/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//EBMLSchema/ebml"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EBML.ecore#//EBMLSchema/element"/>
+    </genClasses>
+    <genClasses ecoreClass="EBML.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/minOccurs"/>
+      <genFeatures createChild="false" propertyDescription="Integer or the value 'unbounded'"
+          ecoreFeature="ecore:EAttribute EBML.ecore#//Element/maxOccurs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/minver"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/maxver"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EBML.ecore#//Element/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EBML.ecore#//Element/implementationNote"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EBML.ecore#//Element/extension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/recurring"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/range"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/unknownSizeAllowed"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EBML.ecore#//Element/restriction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/recursive"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Element/effectiveMaxOccurs"/>
+    </genClasses>
+    <genClasses ecoreClass="EBML.ecore#//Extension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Extension/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute EBML.ecore#//Extension/anyAttribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute EBML.ecore#//Extension/any"/>
+    </genClasses>
+    <genClasses ecoreClass="EBML.ecore#//Documentation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Documentation/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Documentation/purpose"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute EBML.ecore#//Documentation/simple"/>
+    </genClasses>
+    <genClasses ecoreClass="EBML.ecore#//ImplementationNote">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//ImplementationNote/noteAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="EBML.ecore#//Restriction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EBML.ecore#//Restriction/enum"/>
+    </genClasses>
+    <genClasses ecoreClass="EBML.ecore#//Enum">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EBML.ecore#//Enum/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Enum/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EBML.ecore#//Enum/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

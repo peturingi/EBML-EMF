@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description">
+  <viewpoint:DAnalysis uid="_AkHX0NR_EfCMx93imNsQuw" selectedViews="_AkWBUNR_EfCMx93imNsQuw" version="15.4.1.202403191723">
+    <semanticResources>EBML.genmodel</semanticResources>
+    <semanticResources>ebml.ocl.oclas</semanticResources>
+    <semanticResources>ebml.ecore.oclas</semanticResources>
+    <semanticResources>http://www.eclipse.org/emf/2002/Ecore.oclas</semanticResources>
+    <semanticResources>http://www.eclipse.org/ocl/2015/Orphanage.oclas</semanticResources>
+    <semanticResources>EBML.ocl</semanticResources>
+    <semanticResources>EBML.ocl.oclas</semanticResources>
+    <semanticResources>EBML.ecore</semanticResources>
+    <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/XMLType.ecore</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_AkWBUNR_EfCMx93imNsQuw">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AkcH8NR_EfCMx93imNsQuw" name="EBML" repPath="#_Aka50NR_EfCMx93imNsQuw" changeId="1765230241265">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+        <target xmi:type="ecore:EPackage" href="EBML.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_Aka50NR_EfCMx93imNsQuw" synchronized="false">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_AkcvANR_EfCMx93imNsQuw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_AkcvAdR_EfCMx93imNsQuw" type="Sirius" element="_Aka50NR_EfCMx93imNsQuw" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_AkcvAtR_EfCMx93imNsQuw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_AkcvA9R_EfCMx93imNsQuw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_AkcvBNR_EfCMx93imNsQuw"/>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_Akbg4NR_EfCMx93imNsQuw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+    <target xmi:type="ecore:EPackage" href="EBML.ecore#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
