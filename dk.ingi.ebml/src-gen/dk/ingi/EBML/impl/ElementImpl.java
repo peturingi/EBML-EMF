@@ -628,7 +628,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	@Override
 	public EList<Documentation> getDocumentation() {
 		if (documentation == null) {
-			documentation = new EObjectContainmentEList<Documentation>(Documentation.class, this,
+			documentation = new EObjectContainmentEList.Resolving<Documentation>(Documentation.class, this,
 					EBMLPackage.ELEMENT__DOCUMENTATION);
 		}
 		return documentation;
@@ -642,8 +642,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	@Override
 	public EList<ImplementationNote> getImplementationNote() {
 		if (implementationNote == null) {
-			implementationNote = new EObjectContainmentEList<ImplementationNote>(ImplementationNote.class, this,
-					EBMLPackage.ELEMENT__IMPLEMENTATION_NOTE);
+			implementationNote = new EObjectContainmentEList.Resolving<ImplementationNote>(ImplementationNote.class,
+					this, EBMLPackage.ELEMENT__IMPLEMENTATION_NOTE);
 		}
 		return implementationNote;
 	}
@@ -656,7 +656,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	@Override
 	public EList<Extension> getExtension() {
 		if (extension == null) {
-			extension = new EObjectContainmentEList<Extension>(Extension.class, this, EBMLPackage.ELEMENT__EXTENSION);
+			extension = new EObjectContainmentEList.Resolving<Extension>(Extension.class, this,
+					EBMLPackage.ELEMENT__EXTENSION);
 		}
 		return extension;
 	}
@@ -808,6 +809,33 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 */
 	@Override
 	public Restriction getRestriction() {
+		if (restriction != null && restriction.eIsProxy()) {
+			InternalEObject oldRestriction = (InternalEObject) restriction;
+			restriction = (Restriction) eResolveProxy(oldRestriction);
+			if (restriction != oldRestriction) {
+				InternalEObject newRestriction = (InternalEObject) restriction;
+				NotificationChain msgs = oldRestriction.eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - EBMLPackage.ELEMENT__RESTRICTION, null, null);
+				if (newRestriction.eInternalContainer() == null) {
+					msgs = newRestriction.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EBMLPackage.ELEMENT__RESTRICTION,
+							null, msgs);
+				}
+				if (msgs != null)
+					msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EBMLPackage.ELEMENT__RESTRICTION,
+							oldRestriction, restriction));
+			}
+		}
+		return restriction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Restriction basicGetRestriction() {
 		return restriction;
 	}
 
@@ -2597,7 +2625,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		case EBMLPackage.ELEMENT__UNKNOWN_SIZE_ALLOWED:
 			return getUnknownSizeAllowed();
 		case EBMLPackage.ELEMENT__RESTRICTION:
-			return getRestriction();
+			if (resolve)
+				return getRestriction();
+			return basicGetRestriction();
 		case EBMLPackage.ELEMENT__TYPE:
 			return getType();
 		case EBMLPackage.ELEMENT__RECURSIVE:

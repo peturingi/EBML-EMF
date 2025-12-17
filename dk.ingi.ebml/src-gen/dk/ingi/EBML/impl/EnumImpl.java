@@ -114,7 +114,7 @@ public class EnumImpl extends MinimalEObjectImpl.Container implements dk.ingi.EB
 	@Override
 	public EList<Documentation> getDocumentation() {
 		if (documentation == null) {
-			documentation = new EObjectContainmentEList<Documentation>(Documentation.class, this,
+			documentation = new EObjectContainmentEList.Resolving<Documentation>(Documentation.class, this,
 					EBMLPackage.ENUM__DOCUMENTATION);
 		}
 		return documentation;

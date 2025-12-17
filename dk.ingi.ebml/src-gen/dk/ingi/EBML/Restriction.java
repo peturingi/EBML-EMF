@@ -30,7 +30,7 @@ public interface Restriction extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Enum</em>' containment reference list.
 	 * @see dk.ingi.EBML.EBMLPackage#getRestriction_Enum()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='throw new UnsupportedOperationException();  // FIXME Unimplemented urn:ietf:rfc:8794!Restriction!enum'"
 	 * @generated
 	 */

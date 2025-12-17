@@ -218,7 +218,7 @@ public interface Element extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference list.
 	 * @see dk.ingi.EBML.EBMLPackage#getElement_Documentation()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='throw new UnsupportedOperationException();  // FIXME Unimplemented urn:ietf:rfc:8794!Element!documentation'"
 	 * @generated
 	 */
@@ -231,7 +231,7 @@ public interface Element extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Implementation Note</em>' containment reference list.
 	 * @see dk.ingi.EBML.EBMLPackage#getElement_ImplementationNote()
-	 * @model containment="true" upper="7"
+	 * @model containment="true" resolveProxies="true" upper="7"
 	 *        extendedMetaData="name='implementation_note'"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='throw new UnsupportedOperationException();  // FIXME Unimplemented urn:ietf:rfc:8794!Element!implementationNote'"
 	 * @generated
@@ -245,7 +245,7 @@ public interface Element extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extension</em>' containment reference list.
 	 * @see dk.ingi.EBML.EBMLPackage#getElement_Extension()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='throw new UnsupportedOperationException();  // FIXME Unimplemented urn:ietf:rfc:8794!Element!extension'"
 	 * @generated
 	 */
@@ -396,7 +396,7 @@ public interface Element extends EObject {
 	 * @return the value of the '<em>Restriction</em>' containment reference.
 	 * @see #setRestriction(Restriction)
 	 * @see dk.ingi.EBML.EBMLPackage#getElement_Restriction()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='throw new UnsupportedOperationException();  // FIXME Unimplemented urn:ietf:rfc:8794!Element!restriction'"
 	 * @generated
 	 */

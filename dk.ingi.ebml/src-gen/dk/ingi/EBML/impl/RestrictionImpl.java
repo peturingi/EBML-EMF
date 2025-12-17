@@ -70,7 +70,7 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
 	@Override
 	public EList<dk.ingi.EBML.Enum> getEnum() {
 		if (enum_ == null) {
-			enum_ = new EObjectContainmentEList<dk.ingi.EBML.Enum>(dk.ingi.EBML.Enum.class, this,
+			enum_ = new EObjectContainmentEList.Resolving<dk.ingi.EBML.Enum>(dk.ingi.EBML.Enum.class, this,
 					EBMLPackage.RESTRICTION__ENUM);
 		}
 		return enum_;

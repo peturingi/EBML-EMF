@@ -218,7 +218,8 @@ public class EBMLSchemaImpl extends MinimalEObjectImpl.Container implements EBML
 	@Override
 	public EList<Element> getElement() {
 		if (element == null) {
-			element = new EObjectContainmentEList<Element>(Element.class, this, EBMLPackage.EBML_SCHEMA__ELEMENT);
+			element = new EObjectContainmentEList.Resolving<Element>(Element.class, this,
+					EBMLPackage.EBML_SCHEMA__ELEMENT);
 		}
 		return element;
 	}

@@ -104,6 +104,7 @@ public enum ElementType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #INTEGER
 	 * @model literal="integer"
+	 *        annotation="dk.ingi.ebml.matroska.m2m name='IntegerElement'"
 	 * @generated
 	 * @ordered
 	 */
@@ -115,6 +116,7 @@ public enum ElementType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #UINTEGER
 	 * @model literal="uinteger"
+	 *        annotation="dk.ingi.ebml.matroska.m2m name='UIntegerElement'"
 	 * @generated
 	 * @ordered
 	 */
@@ -126,6 +128,7 @@ public enum ElementType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #FLOAT
 	 * @model literal="float"
+	 *        annotation="dk.ingi.ebml.matroska.m2m name='FloatElement'"
 	 * @generated
 	 * @ordered
 	 */
@@ -137,6 +140,7 @@ public enum ElementType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #STRING
 	 * @model literal="string"
+	 *        annotation="dk.ingi.ebml.matroska.m2m name='StringElement'"
 	 * @generated
 	 * @ordered
 	 */
@@ -148,6 +152,7 @@ public enum ElementType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #DATE
 	 * @model literal="date"
+	 *        annotation="dk.ingi.ebml.matroska.m2m name='DateElement'"
 	 * @generated
 	 * @ordered
 	 */
@@ -159,6 +164,7 @@ public enum ElementType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #UTF8
 	 * @model literal="utf-8"
+	 *        annotation="dk.ingi.ebml.matroska.m2m name='UTF8Element'"
 	 * @generated
 	 * @ordered
 	 */
@@ -170,6 +176,7 @@ public enum ElementType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #MASTER
 	 * @model literal="master"
+	 *        annotation="dk.ingi.ebml.matroska.m2m name='IntegerElement'"
 	 * @generated
 	 * @ordered
 	 */
@@ -181,6 +188,7 @@ public enum ElementType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @see #BINARY
 	 * @model literal="binary"
+	 *        annotation="dk.ingi.ebml.matroska.m2m name='BinaryElement'"
 	 * @generated
 	 * @ordered
 	 */

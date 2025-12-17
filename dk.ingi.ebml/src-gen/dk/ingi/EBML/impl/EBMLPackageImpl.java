@@ -1020,8 +1020,8 @@ public class EBMLPackageImpl extends EPackageImpl implements EBMLPackage {
 		initEAttribute(getEBMLSchema_Ebml(), ecorePackage.getEInt(), "ebml", "1", 1, 1, EBMLSchema.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEBMLSchema_Element(), this.getElement(), null, "element", null, 0, -1, EBMLSchema.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getEBMLSchema__Version_notNegative__DiagnosticChain_Map(),
 				ecorePackage.getEBoolean(), "version_notNegative", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1057,14 +1057,14 @@ public class EBMLPackageImpl extends EPackageImpl implements EBMLPackage {
 		initEAttribute(getElement_Maxver(), ecorePackage.getEIntegerObject(), "maxver", null, 0, 1, Element.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Documentation(), this.getDocumentation(), null, "documentation", null, 0, -1,
-				Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_ImplementationNote(), this.getImplementationNote(), null, "implementationNote", null,
-				0, 7, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				0, 7, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Extension(), this.getExtension(), null, "extension", null, 0, -1, Element.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, Element.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Length(), ecorePackage.getEString(), "length", null, 0, 1, Element.class,
@@ -1080,8 +1080,8 @@ public class EBMLPackageImpl extends EPackageImpl implements EBMLPackage {
 				1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Restriction(), this.getRestriction(), null, "restriction", null, 0, 1, Element.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Type(), this.getElementType(), "type", null, 1, 1, Element.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Recursive(), this.getZeroOneBooleanObject(), "recursive", "false", 1, 1,
@@ -1312,13 +1312,13 @@ public class EBMLPackageImpl extends EPackageImpl implements EBMLPackage {
 		initEClass(restrictionEClass, Restriction.class, "Restriction", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRestriction_Enum(), this.getEnum(), null, "enum", null, 0, -1, Restriction.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumEClass, dk.ingi.EBML.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnum_Documentation(), this.getDocumentation(), null, "documentation", null, 0, -1,
-				dk.ingi.EBML.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				dk.ingi.EBML.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnum_Label(), ecorePackage.getEString(), "label", null, 0, 1, dk.ingi.EBML.Enum.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1372,6 +1372,8 @@ public class EBMLPackageImpl extends EPackageImpl implements EBMLPackage {
 		createGenModelAnnotations();
 		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 		createExtendedMetaDataAnnotations();
+		// dk.ingi.ebml.matroska.m2m
+		createDkAnnotations();
 	}
 
 	/**
@@ -1631,6 +1633,24 @@ public class EBMLPackageImpl extends EPackageImpl implements EBMLPackage {
 		addAnnotation(documentationEClass, source, new String[] { "kind", "simple" });
 		addAnnotation(getDocumentation_Simple(), source, new String[] { "kind", "simple" });
 		addAnnotation(getImplementationNote_NoteAttribute(), source, new String[] { "name", "note_attribute" });
+	}
+
+	/**
+	 * Initializes the annotations for <b>dk.ingi.ebml.matroska.m2m</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createDkAnnotations() {
+		String source = "dk.ingi.ebml.matroska.m2m";
+		addAnnotation(elementTypeEEnum.getELiterals().get(0), source, new String[] { "name", "IntegerElement" });
+		addAnnotation(elementTypeEEnum.getELiterals().get(1), source, new String[] { "name", "UIntegerElement" });
+		addAnnotation(elementTypeEEnum.getELiterals().get(2), source, new String[] { "name", "FloatElement" });
+		addAnnotation(elementTypeEEnum.getELiterals().get(3), source, new String[] { "name", "StringElement" });
+		addAnnotation(elementTypeEEnum.getELiterals().get(4), source, new String[] { "name", "DateElement" });
+		addAnnotation(elementTypeEEnum.getELiterals().get(5), source, new String[] { "name", "UTF8Element" });
+		addAnnotation(elementTypeEEnum.getELiterals().get(6), source, new String[] { "name", "IntegerElement" });
+		addAnnotation(elementTypeEEnum.getELiterals().get(7), source, new String[] { "name", "BinaryElement" });
 	}
 
 } //EBMLPackageImpl

@@ -108,7 +108,7 @@ public interface EBMLSchema extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element</em>' containment reference list.
 	 * @see dk.ingi.EBML.EBMLPackage#getEBMLSchema_Element()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='throw new UnsupportedOperationException();  // FIXME Unimplemented urn:ietf:rfc:8794!EBMLSchema!element'"
 	 * @generated
 	 */

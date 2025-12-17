@@ -180,14 +180,46 @@
     <eLiterals name="MATROSKA" value="1" literal="matroska"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ElementType">
-    <eLiterals name="INTEGER" value="1" literal="integer"/>
-    <eLiterals name="UINTEGER" value="2" literal="uinteger"/>
-    <eLiterals name="FLOAT" value="3" literal="float"/>
-    <eLiterals name="STRING" value="4" literal="string"/>
-    <eLiterals name="DATE" value="5" literal="date"/>
-    <eLiterals name="UTF8" value="6" literal="utf-8"/>
-    <eLiterals name="MASTER" value="7" literal="master"/>
-    <eLiterals name="BINARY" value="8" literal="binary"/>
+    <eLiterals name="INTEGER" value="1" literal="integer">
+      <eAnnotations source="dk.ingi.ebml.matroska.m2m">
+        <details key="name" value="IntegerElement"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="UINTEGER" value="2" literal="uinteger">
+      <eAnnotations source="dk.ingi.ebml.matroska.m2m">
+        <details key="name" value="UIntegerElement"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="FLOAT" value="3" literal="float">
+      <eAnnotations source="dk.ingi.ebml.matroska.m2m">
+        <details key="name" value="FloatElement"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="STRING" value="4" literal="string">
+      <eAnnotations source="dk.ingi.ebml.matroska.m2m">
+        <details key="name" value="StringElement"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="DATE" value="5" literal="date">
+      <eAnnotations source="dk.ingi.ebml.matroska.m2m">
+        <details key="name" value="DateElement"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="UTF8" value="6" literal="utf-8">
+      <eAnnotations source="dk.ingi.ebml.matroska.m2m">
+        <details key="name" value="UTF8Element"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MASTER" value="7" literal="master">
+      <eAnnotations source="dk.ingi.ebml.matroska.m2m">
+        <details key="name" value="IntegerElement"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="BINARY" value="8" literal="binary">
+      <eAnnotations source="dk.ingi.ebml.matroska.m2m">
+        <details key="name" value="BinaryElement"/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ZeroOneBooleanObject" instanceClassName="java.lang.Boolean"/>
 </ecore:EPackage>
